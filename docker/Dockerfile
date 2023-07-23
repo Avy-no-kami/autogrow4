@@ -14,10 +14,10 @@ RUN apt-get -yqq install zip
 
 # Install python
 RUN apt-get -yqq install bzip2
-RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-RUN chmod -R a+rwx Miniconda3-latest-Linux-x86_64.sh
-RUN ./Miniconda3-latest-Linux-x86_64.sh -b
-RUN rm ./Miniconda3-latest-Linux-x86_64.sh
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-py37_4.11.0-Linux-x86_64.sh
+RUN chmod -R a+rwx Miniconda3-py37_4.11.0-Linux-x86_64.sh
+RUN ./Miniconda3-py37_4.11.0-Linux-x86_64.sh -b
+RUN rm ./Miniconda3-py37_4.11.0-Linux-x86_64.sh
 RUN echo "alias python=/root/miniconda3/bin/python" >> /root/.bashrc
 RUN echo "alias conda=/root/miniconda3/bin/conda" >> /root/.bashrc
 RUN echo "alias pip=/root/miniconda3/bin/pip" >> /root/.bashrc
@@ -31,9 +31,13 @@ RUN /root/miniconda3/bin/pip install matplotlib==3.2.1
 RUN /root/miniconda3/bin/pip install func_timeout==4.3.5
 
 # Install mgltools
-RUN wget http://mgltools.scripps.edu/downloads/downloads/tars/releases/REL1.5.6/mgltools_x86_64Linux2_1.5.6.tar.gz
-RUN tar xvfz *.tar.gz
-RUN rm *.tar.gz
+# RUN add-apt-repository ppa:wkentaro/gdown
+# RUN apt-get update
+# RUN apt-get install python-gdown
+# RUN gdown --id 1xrrD_pNAAo-W-9OnZUtKVpiVfa8gUbQT 
+RUN wget -O mgltools_x86_64Linux2_1.5.6p1.tar.gz  "https://docs.google.com/uc?export=download&confirm=t&id=1xrrD_pNAAo-W-9OnZUtKVpiVfa8gUbQT"
+RUN tar xvfz mgltools_x86_64Linux2_1.5.6p1.tar.gz
+RUN rm mgltools_x86_64Linux2_1.5.6p1.tar.gz
 RUN cd /mgltool*/ && \
     ./install.sh
 # RUN echo "alias python=/mgltools*/bin/pythonsh" >> /root/.bashrc
