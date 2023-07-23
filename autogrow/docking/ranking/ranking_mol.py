@@ -77,7 +77,7 @@ def create_seed_list(usable_list_of_smiles, num_seed_diversity,
 
         # Get seed molecules based on docking scores
         docking_fitness_smiles_list = Rank_Sel.run_rank_selector(
-            usable_list_of_smiles, num_seed_dock_fitness, -2, False
+            usable_list_of_smiles, num_seed_dock_fitness, -3, False
         )
 
         # Get seed molecules based on diversity scores
@@ -170,7 +170,7 @@ def get_chosen_mol_full_data_list(chosen_mol_list, usable_list_of_smiles):
         the associated information in a random order
     """
 
-    sorted_list = sorted(usable_list_of_smiles, key=lambda x: float(x[-2]))
+    sorted_list = sorted(usable_list_of_smiles, key=lambda x: float(x[-3]))
     weighted_order_list = []
     for smile in chosen_mol_list:
         for smile_pair in sorted_list:
