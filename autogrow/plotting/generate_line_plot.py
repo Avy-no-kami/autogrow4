@@ -98,7 +98,7 @@ def get_average_score_per_gen(infolder, folder_list):
                     for i in range(0, len(parts)):
                         choice_list.append(parts[i])
 
-                    gen_affinity_sum = gen_affinity_sum + float(choice_list[-2])
+                    gen_affinity_sum = gen_affinity_sum + float(choice_list[-3])
                     num_lines_counter = num_lines_counter + float(1.0)
 
             gen_affinity_average = gen_affinity_sum / num_lines_counter
@@ -159,7 +159,7 @@ def get_average_top_score_per_gen(infolder, folder_list, top_score_per_gen):
                         for j in range(0, len(parts)):
                             choice_list.append(parts[j])
 
-                        gen_affinity_sum = gen_affinity_sum + float(choice_list[-2])
+                        gen_affinity_sum = gen_affinity_sum + float(choice_list[-3])
 
                     gen_affinity_average = gen_affinity_sum / top_score_per_gen
 
