@@ -265,7 +265,7 @@ def convert_usable_list_to_lig_dict(usable_list_of_smiles):
     for item in usable_list_of_smiles:
         key = str(item[0]) + str(item[1])
         if key in usable_dict_of_smiles.keys():
-            if usable_dict_of_smiles[key][-1] < item[-2]:
+            if usable_dict_of_smiles[key][-1] < item[-3]:
                 continue
         usable_dict_of_smiles[key] = item
     return usable_dict_of_smiles
