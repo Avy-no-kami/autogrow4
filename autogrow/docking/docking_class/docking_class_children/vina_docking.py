@@ -570,7 +570,7 @@ class VinaDocking(ParentDocking):
 
         # sort list by the affinity of each sublist (which is the last index
         # of sublist)
-        smiles_list.sort(key=lambda x: float(x[-1]), reverse=False)
+        smiles_list.sort(key=lambda x: float(x[-2]), reverse=False)
 
         # score the diversity of each ligand compared to the rest of the
         # ligands in the group this adds on a float in the last column for the
